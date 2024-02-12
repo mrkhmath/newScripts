@@ -23,7 +23,7 @@ for file_path in file_paths:
     combined_df = pd.concat([combined_df, df], ignore_index=True)
 
 # Write the combined DataFrame to a new Excel workbook
-combined_df.to_excel('C:/Users/NCE/Downloads/combined_workbookAbdo.xlsx', index=False, engine='openpyxl')
+combined_df.to_excel('C:/Users/kh_ma/Downloads/combined_workbookAbdo.xlsx', index=False, engine='openpyxl')
 
 # Print a success message
 print(f"Files were successfully merged into combined_workbook.xlsx")
