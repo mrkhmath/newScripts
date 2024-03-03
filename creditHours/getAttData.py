@@ -27,7 +27,7 @@ dfs_sub_filtered=[]
 # Generate date range
 start_date = datetime(2023, 11, 27)
 # start_date = datetime(2024, 1, 29)
-end_date = datetime(2024, 2, 29)
+end_date = datetime(2024,3, 1)
 
 current_date = start_date
 while current_date <= end_date:
@@ -90,7 +90,7 @@ for df in dfs_sub_filtered:
 
 # df_summary now contains the count of each subject for each pupil number
 
-df_summary.to_csv('C:\\Users\\kh_ma\\Downloads\\df_summary.csv', index=False)
+df_summary.to_csv('C:\\Users\\kh_ma\\Downloads\\spring_df_summary.csv', index=False)
 # print(dfs_att[0])
 
 conn.close()
