@@ -2,7 +2,7 @@ from PyPDF2 import PdfReader, PdfWriter
 import re
 
 # File path for the PDF
-file_path = 'C:\\Users\\kh_ma\\Downloads\\eSIS_Report_grade_10.pdf'
+file_path = 'C:\\Users\\kh_ma\\Downloads\\grade8Reports.pdf'
 
 # Function to split PDF into separate pages and name each file by the number opposite to "Student #"
 def split_pdf(file_path):
@@ -35,7 +35,7 @@ def split_pdf(file_path):
         pdf_writer.add_page(page)
 
 #         # Output file path
-        output_filename = f'C:\\Users\\kh_ma\\Downloads\\10Reports\\{student_number}.pdf'
+        output_filename = f'C:\\Users\\kh_ma\\Downloads\\8Reportss\\{student_number}.pdf'
 
 #         # Write the page to a new file
         with open(output_filename, "wb") as output_file:
