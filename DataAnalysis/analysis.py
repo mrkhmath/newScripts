@@ -3,10 +3,10 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Load the data
-df = pd.read_csv('C:\\Users\\kh_ma\\Documents\\scripts\\DataAnalysis\\updated_MarkEnteredReport 23T2.csv')
+df = pd.read_csv('C:\\Users\\NCE\\pythonScripts\\DataAnalysis\\updated_MarkEnteredReport 23T2.csv')
 
 # Set up the visual appearance of plots
-sns.set(style="whitegrid")
+sns.set_theme(style="whitegrid")
 
 # Define a function to generate analysis for each teacher
 def analyze_teacher_performance(dataframe):
@@ -26,19 +26,19 @@ def analyze_teacher_performance(dataframe):
         max_mark = teacher_data.max()
         
         # Append summary to the summaries DataFrame
-        summaries = summaries.append({'Teacher': teacher, 'Mean': mean, 'Median': median, 'Std Dev': std_dev, 'Min': min_mark, 'Max': max_mark}, ignore_index=True)
-        
+        new_row = pd.DataFrame([{'Teacher': teacher, 'Mean': mean, 'Median': median, 'Std Dev': std_dev, 'Min': min_mark, 'Max': max_mark}])
+        summaries = pd.concat([summaries, new_row], ignore_index=True)
         # Generate and save a histogram for each teacher
         plt.figure(figsize=(10, 6))
         sns.histplot(teacher_data, kde=True, binwidth=5)
         plt.title(f'Marks Distribution for {teacher}')
-        plt.xlabel('T1 Marks')
+        plt.xlabel('T2 Marks')
         plt.ylabel('Frequency')
-        plt.savefig(f'C:\\Users\\kh_ma\\Documents\\scripts\\DataAnalysis\\marks_distribution_{teacher.replace(" ", "_")}.png')
+        plt.savefig(f'C:\\Users\\NCE\\pythonScripts\\DataAnalysis\\marks_distribution_{teacher.replace(" ", "_")}.png')
         plt.close()
     
     # Save the summaries to an HTML file
-    summaries.to_csv('C:\\Users\\kh_ma\\Documents\\scripts\\DataAnalysis\\teachers_performance_summary23T2.csv', index=False)
+    summaries.to_csv('C:\\Users\\NCE\\pythonScripts\\DataAnalysis\\teachers_performance_summary23T2.csv', index=False)
 
     return summaries
 
